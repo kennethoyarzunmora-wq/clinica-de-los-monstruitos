@@ -250,6 +250,205 @@ p {
   gap: 18px;
 }
 
+.stage-map {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  display: grid;
+  gap: 16px;
+}
+
+.stage-card,
+.stage-complete-panel,
+.stage-game {
+  border: 2px solid var(--line);
+  border-radius: 28px;
+  background: var(--panel);
+  box-shadow: 0 18px 40px rgba(54, 88, 116, 0.12);
+  backdrop-filter: blur(8px);
+}
+
+.stage-card {
+  padding: 18px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 16px;
+}
+
+.stage-card--locked {
+  opacity: 0.62;
+}
+
+.stage-card--locked .button {
+  cursor: not-allowed;
+  filter: grayscale(0.8);
+}
+
+.stage-card__icon,
+.stage-game__icon {
+  width: 74px;
+  height: 74px;
+  border-radius: 24px;
+  display: grid;
+  place-items: center;
+  background: #fff1a8;
+  font-size: 2.4rem;
+}
+
+.stage-card__body {
+  display: grid;
+  gap: 5px;
+}
+
+.stage-card__body h2,
+.stage-game h1,
+.stage-game h2,
+.stage-complete-panel h2 {
+  margin-bottom: 0;
+}
+
+.stage-card__body p,
+.stage-card__body small,
+.stage-complete-panel p {
+  color: var(--muted);
+}
+
+.stage-card__level {
+  color: #30635b;
+  font-weight: 900;
+}
+
+.stage-stars {
+  color: #d99700;
+  font-size: 1.45rem;
+  letter-spacing: 0;
+}
+
+.stage-complete-panel,
+.stage-game {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  padding: clamp(18px, 4vw, 30px);
+}
+
+.stage-complete-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.stage-game {
+  display: grid;
+  gap: 18px;
+}
+
+.stage-game__intro {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.stage-game__intro h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.snake-board {
+  width: min(560px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+
+.snake-cell {
+  min-height: clamp(52px, 13vw, 86px);
+  border-radius: 18px;
+  border: 2px solid var(--line);
+  background: rgba(255, 255, 255, 0.78);
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.snake-piece,
+.fruit {
+  position: absolute;
+  display: grid;
+  place-items: center;
+}
+
+.snake-piece {
+  z-index: 1;
+  width: 74%;
+  height: 74%;
+  border-radius: 999px;
+  background: #b8f2e6;
+  color: #245f55;
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.fruit {
+  width: 44%;
+  height: 44%;
+  border-radius: 50%;
+  font-size: 1.3rem;
+}
+
+.fruit--azul {
+  color: #268bd2;
+  background: #bfeeff;
+}
+
+.fruit--verde {
+  color: #2f9c5a;
+  background: #c8f7d0;
+}
+
+.fruit--amarillo {
+  color: #d99700;
+  background: #fff1a8;
+}
+
+.direction-pad {
+  width: min(680px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(120px, 1fr));
+  gap: 14px;
+}
+
+.memory-card {
+  min-height: 150px;
+  border-radius: 24px;
+  border: 2px solid var(--line);
+  background: #ffffff;
+  color: var(--ink);
+  display: grid;
+  place-items: center;
+  gap: 8px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.memory-card span {
+  font-size: 3rem;
+}
+
+.memory-card--open {
+  background: #e6fbf8;
+  border-color: #7bdff2;
+}
+
 .monster-card,
 .choice,
 .progress-summary,
@@ -780,6 +979,22 @@ p {
 
   .challenge-card__header {
     flex-direction: column;
+  }
+
+  .stage-card,
+  .stage-complete-panel {
+    grid-template-columns: 1fr;
+    display: grid;
+    text-align: center;
+    justify-items: center;
+  }
+
+  .direction-pad {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .memory-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 

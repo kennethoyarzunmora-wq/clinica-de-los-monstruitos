@@ -13,6 +13,7 @@ interface ClinicRoomPageProps {
   onBack: () => void;
   onPatientComplete: (monster: Monster) => void;
   onChallengeComplete: (monster: Monster) => void;
+  onStages: () => void;
   onCorrectSound: () => void;
   onRetrySound: () => void;
   onHintSound: () => void;
@@ -28,6 +29,7 @@ export function ClinicRoomPage({
   onBack,
   onPatientComplete,
   onChallengeComplete,
+  onStages,
   onCorrectSound,
   onRetrySound,
   onHintSound,
@@ -68,6 +70,9 @@ export function ClinicRoomPage({
           <RewardBadge badge={badge} />
           <Button onClick={onBack} variant="success" icon="➕" aria-label="Atender otro monstruito">
             Atender otro monstruito
+          </Button>
+          <Button onClick={onStages} variant="secondary" icon="🗺" aria-label="Ver mapa de etapas">
+            Ver etapas
           </Button>
         </section>
       </main>

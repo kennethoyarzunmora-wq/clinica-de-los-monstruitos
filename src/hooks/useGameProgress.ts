@@ -9,6 +9,8 @@ const emptyProgress: GameProgress = {
   earnedBadges: [],
   completedChallenges: 0,
   practicedSkills: [],
+  completedStages: [],
+  stageStars: {},
   lastPlayedAt: null,
 };
 
@@ -27,6 +29,8 @@ function readProgress(): GameProgress {
       earnedBadges: Array.isArray(parsed.earnedBadges) ? parsed.earnedBadges : [],
       completedChallenges: Number(parsed.completedChallenges ?? 0),
       practicedSkills: Array.isArray(parsed.practicedSkills) ? parsed.practicedSkills : [],
+      completedStages: Array.isArray(parsed.completedStages) ? parsed.completedStages : [],
+      stageStars: parsed.stageStars && typeof parsed.stageStars === 'object' ? parsed.stageStars as Record<number, number> : {},
       lastPlayedAt: parsed.lastPlayedAt ?? null,
     };
   } catch {
@@ -51,11 +55,32 @@ export function useGameProgress() {
   }, []);
 
   const completePatient = useCallback((monster: Monster) => {
+    setProgress((current) => {
+      const completedPatients = unique([...current.completedPatients, monster.id]);
+      const completedFirstStage = completedPatients.length >= monsters.length;
+
+      return {
+        ...current,
+        completedPatients,
+        earnedBadges: unique([...current.earnedBadges, monster.badgeId]),
+        completedStages: completedFirstStage ? unique([...current.completedStages, 1]) : current.completedStages,
+        stageStars: completedFirstStage ? { ...current.stageStars, 1: 3 } : current.stageStars,
+        practicedSkills: unique([...current.practicedSkills, monster.skill]),
+        lastPlayedAt: new Date().toISOString(),
+      };
+    });
+  }, []);
+
+  const completeStage = useCallback((stageId: number, stars: number, skill: string) => {
     setProgress((current) => ({
       ...current,
-      completedPatients: unique([...current.completedPatients, monster.id]),
-      earnedBadges: unique([...current.earnedBadges, monster.badgeId]),
-      practicedSkills: unique([...current.practicedSkills, monster.skill]),
+      completedStages: unique([...current.completedStages, stageId]),
+      stageStars: {
+        ...current.stageStars,
+        [stageId]: Math.max(current.stageStars[stageId] ?? 0, stars),
+      },
+      practicedSkills: unique([...current.practicedSkills, skill]),
+      completedChallenges: current.completedChallenges + 1,
       lastPlayedAt: new Date().toISOString(),
     }));
   }, []);
@@ -73,6 +98,7 @@ export function useGameProgress() {
     completionPercent,
     completeChallenge,
     completePatient,
+    completeStage,
     resetProgress,
   };
 }

@@ -1,4 +1,4 @@
-export type View = 'home' | 'patients' | 'clinic' | 'progress';
+export type View = 'home' | 'stages' | 'patients' | 'clinic' | 'stage-game' | 'progress';
 
 export type ChallengeType = 'number' | 'emotion' | 'color' | 'sequence' | 'letter';
 
@@ -51,5 +51,17 @@ export interface GameProgress {
   earnedBadges: string[];
   completedChallenges: number;
   practicedSkills: string[];
+  completedStages: number[];
+  stageStars: Record<number, number>;
   lastPlayedAt: string | null;
+}
+
+export interface LearningStage {
+  id: number;
+  title: string;
+  subtitle: string;
+  skill: string;
+  icon: string;
+  difficulty: string;
+  kind: 'clinic' | 'snake-colors' | 'emotion-memory' | 'sequence-builder' | 'sound-match';
 }

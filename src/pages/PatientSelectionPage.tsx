@@ -8,9 +8,12 @@ interface PatientSelectionPageProps {
   onSelect: (monster: Monster) => void;
   onBack: () => void;
   onProgress: () => void;
+  onStages: () => void;
 }
 
-export function PatientSelectionPage({ progress, onSelect, onBack, onProgress }: PatientSelectionPageProps) {
+export function PatientSelectionPage({ progress, onSelect, onBack, onProgress, onStages }: PatientSelectionPageProps) {
+  const stageComplete = progress.completedStages.includes(1);
+
   return (
     <main className="page page--soft">
       <header className="topbar">
@@ -38,6 +41,19 @@ export function PatientSelectionPage({ progress, onSelect, onBack, onProgress }:
           />
         ))}
       </section>
+
+      {stageComplete ? (
+        <section className="stage-complete-panel" aria-label="Etapa 1 completa">
+          <div>
+            <p className="eyebrow">Etapa 1 completa</p>
+            <h2>¡La clínica está feliz!</h2>
+            <p>Ya puedes pasar a una etapa un poco más compleja.</p>
+          </div>
+          <Button variant="success" icon="🗺" onClick={onStages} aria-label="Ir a la siguiente etapa">
+            Siguiente etapa
+          </Button>
+        </section>
+      ) : null}
     </main>
   );
 }

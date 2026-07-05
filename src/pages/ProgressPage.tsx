@@ -53,6 +53,10 @@ export function ProgressPage({ progress, completionPercent, onBack, onReset }: P
             <strong>{progress.completedChallenges}</strong>
             <span>Retos completados</span>
           </article>
+          <article>
+            <strong>{progress.completedStages.length}</strong>
+            <span>Etapas completadas</span>
+          </article>
         </div>
         <p className="last-played">Último juego: {formatDate(progress.lastPlayedAt)}</p>
       </section>
