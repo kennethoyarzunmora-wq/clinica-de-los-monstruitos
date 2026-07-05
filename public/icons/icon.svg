@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">Clínica de los Monstruitos</title>
+  <rect width="512" height="512" rx="112" fill="#effbff"/>
+  <circle cx="144" cy="124" r="58" fill="#fff1a8"/>
+  <circle cx="398" cy="128" r="70" fill="#ffb3d1"/>
+  <circle cx="378" cy="392" r="74" fill="#b8f2e6"/>
+  <path d="M256 116c-74 0-135 54-135 130 0 82 57 150 135 150s135-68 135-150c0-76-61-130-135-130Z" fill="#7bdff2"/>
+  <path d="M190 128c-18-42-8-74 20-86 18 26 22 58 2 93Z" fill="#42a5c7"/>
+  <path d="M322 128c18-42 8-74-20-86-18 26-22 58-2 93Z" fill="#42a5c7"/>
+  <circle cx="207" cy="241" r="34" fill="#fff"/>
+  <circle cx="305" cy="241" r="34" fill="#fff"/>
+  <circle cx="216" cy="252" r="13" fill="#203047"/>
+  <circle cx="296" cy="252" r="13" fill="#203047"/>
+  <path d="M214 310c20 34 64 34 84 0" fill="none" stroke="#203047" stroke-width="18" stroke-linecap="round"/>
+  <path d="M256 68v86M213 111h86" stroke="#ff8fab" stroke-width="28" stroke-linecap="round"/>
+</svg>
