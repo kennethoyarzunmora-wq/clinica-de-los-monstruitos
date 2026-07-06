@@ -363,6 +363,35 @@ p {
   gap: 8px;
 }
 
+.bag-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(150px, 1fr));
+  gap: 14px;
+}
+
+.apple-bag {
+  min-height: 92px;
+  border: 3px solid var(--line);
+  border-radius: 24px;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: #ffffff;
+  font-size: 1.35rem;
+}
+
+.apple-bag span {
+  font-size: 2.4rem;
+}
+
+.apple-bag--active {
+  border-color: #7bd88f;
+  background: #e9fff0;
+  transform: scale(1.02);
+}
+
 .snake-cell {
   min-height: clamp(52px, 13vw, 86px);
   border-radius: 18px;
@@ -389,6 +418,25 @@ p {
   color: #245f55;
   font-size: 2rem;
   font-weight: 900;
+  overflow: hidden;
+}
+
+.snake-mouth {
+  position: absolute;
+  right: 10%;
+  top: 50%;
+  width: 24%;
+  height: 8%;
+  border-radius: 999px;
+  background: #245f55;
+  transform: translateY(-50%);
+  transition: height 140ms ease, clip-path 140ms ease;
+}
+
+.snake-piece--munch .snake-mouth {
+  height: 34%;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+  background: #ffffff;
 }
 
 .fruit {
@@ -398,19 +446,27 @@ p {
   font-size: 1.3rem;
 }
 
-.fruit--azul {
-  color: #268bd2;
-  background: #bfeeff;
+.fruit--roja {
+  color: #d94141;
+  background: #ffd1d1;
 }
 
-.fruit--verde {
-  color: #2f9c5a;
-  background: #c8f7d0;
-}
-
-.fruit--amarillo {
+.fruit--amarilla {
   color: #d99700;
   background: #fff1a8;
+}
+
+.soft-bomb {
+  width: 52%;
+  height: 52%;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 35% 30%, #ffffff 0 12%, transparent 14%),
+    #545b70;
+  color: #545b70;
+  box-shadow: 0 -8px 0 #ffb3d1 inset;
 }
 
 .direction-pad {
@@ -423,12 +479,17 @@ p {
 
 .memory-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(120px, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(4, minmax(76px, 1fr));
+  gap: 10px;
+}
+
+.memory-grid--large {
+  grid-template-columns: repeat(6, minmax(58px, 1fr));
+  gap: 8px;
 }
 
 .memory-card {
-  min-height: 150px;
+  min-height: clamp(68px, 11vw, 120px);
   border-radius: 24px;
   border: 2px solid var(--line);
   background: #ffffff;
@@ -441,13 +502,113 @@ p {
 }
 
 .memory-card span {
-  font-size: 3rem;
+  font-size: clamp(1.9rem, 5vw, 3rem);
 }
 
 .memory-card--open {
   background: #e6fbf8;
   border-color: #7bdff2;
 }
+
+.visual-prompt {
+  min-height: 130px;
+  border: 2px solid var(--line);
+  border-radius: 28px;
+  padding: 18px;
+  background: #ffffff;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.visual-prompt span {
+  min-width: 58px;
+  min-height: 58px;
+  border-radius: 20px;
+  display: grid;
+  place-items: center;
+  background: #effbff;
+  font-size: clamp(2rem, 8vw, 4rem);
+  font-weight: 900;
+}
+
+.visual-prompt--compact span {
+  min-width: 46px;
+  min-height: 46px;
+  font-size: clamp(1.65rem, 7vw, 3.5rem);
+}
+
+.stage-finale {
+  min-height: calc(100vh - 48px);
+  place-items: center;
+  align-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.trophy {
+  font-size: clamp(5rem, 18vw, 9rem);
+  animation: celebrate 900ms ease-in-out infinite alternate;
+}
+
+.stage-stars--big {
+  font-size: clamp(2.4rem, 8vw, 4.8rem);
+}
+
+.confetti {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.confetti span {
+  position: absolute;
+  top: -10%;
+  width: 12px;
+  height: 22px;
+  border-radius: 6px;
+  background: #ffd166;
+  animation: confetti-fall 3.2s linear infinite;
+}
+
+.confetti span:nth-child(3n) {
+  background: #7bdff2;
+}
+
+.confetti span:nth-child(4n) {
+  background: #ffb3d1;
+}
+
+.confetti span:nth-child(5n) {
+  background: #7bd88f;
+}
+
+.confetti span:nth-child(1) { left: 5%; animation-delay: 0ms; }
+.confetti span:nth-child(2) { left: 10%; animation-delay: 260ms; }
+.confetti span:nth-child(3) { left: 16%; animation-delay: 520ms; }
+.confetti span:nth-child(4) { left: 23%; animation-delay: 110ms; }
+.confetti span:nth-child(5) { left: 29%; animation-delay: 740ms; }
+.confetti span:nth-child(6) { left: 35%; animation-delay: 380ms; }
+.confetti span:nth-child(7) { left: 41%; animation-delay: 920ms; }
+.confetti span:nth-child(8) { left: 47%; animation-delay: 160ms; }
+.confetti span:nth-child(9) { left: 53%; animation-delay: 640ms; }
+.confetti span:nth-child(10) { left: 59%; animation-delay: 840ms; }
+.confetti span:nth-child(11) { left: 65%; animation-delay: 300ms; }
+.confetti span:nth-child(12) { left: 71%; animation-delay: 1040ms; }
+.confetti span:nth-child(13) { left: 77%; animation-delay: 460ms; }
+.confetti span:nth-child(14) { left: 83%; animation-delay: 700ms; }
+.confetti span:nth-child(15) { left: 89%; animation-delay: 80ms; }
+.confetti span:nth-child(16) { left: 95%; animation-delay: 560ms; }
+.confetti span:nth-child(17) { left: 13%; animation-delay: 1300ms; }
+.confetti span:nth-child(18) { left: 31%; animation-delay: 1460ms; }
+.confetti span:nth-child(19) { left: 49%; animation-delay: 1180ms; }
+.confetti span:nth-child(20) { left: 67%; animation-delay: 1520ms; }
+.confetti span:nth-child(21) { left: 85%; animation-delay: 1260ms; }
+.confetti span:nth-child(22) { left: 92%; animation-delay: 1660ms; }
 
 .monster-card,
 .choice,
@@ -946,6 +1107,17 @@ p {
   }
 }
 
+@keyframes confetti-fall {
+  from {
+    transform: translateY(-20px) rotate(0deg);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(110vh) rotate(240deg);
+    opacity: 0.4;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -994,7 +1166,11 @@ p {
   }
 
   .memory-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .memory-grid--large {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
@@ -1047,5 +1223,20 @@ p {
   .count-item {
     min-height: 54px;
     border-radius: 16px;
+  }
+
+  .bag-row {
+    grid-template-columns: 1fr;
+  }
+
+  .memory-grid,
+  .memory-grid--large {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 7px;
+  }
+
+  .memory-card {
+    border-radius: 16px;
+    min-height: 62px;
   }
 }

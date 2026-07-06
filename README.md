@@ -88,10 +88,10 @@ src/
 El juego tiene 5 etapas progresivas:
 
 1. Consulta cariñosa: atención clínica de los 5 pacientes.
-2. Camino de frutas: culebrita por turnos que debe tomar frutas azules y verdes, dejando las amarillas.
-3. Memoria de emociones: parejas de caritas.
-4. Receta en orden: completar patrones y secuencias.
-5. Sonidos iniciales: letras iniciales y números hasta 20.
+2. Sacos de manzanas: culebrita por turnos que llena un saco rojo y luego uno amarillo; aparecen más manzanas y una bomba suave puede quitar 4.
+3. Memoria de emociones: primero 16 cartas y luego 24, con copa y confeti al finalizar.
+4. Receta en orden: completar patrones visuales con iconos.
+5. Sonidos iniciales: elegir letras y números desde dibujos grandes, con poca lectura.
 
 Al completar una etapa se desbloquea la siguiente. No hay temporizadores ni presión por velocidad.
 

@@ -12,10 +12,10 @@ export const stages: LearningStage[] = [
   },
   {
     id: 2,
-    title: 'Camino de frutas',
-    subtitle: 'Come azul y verde. Deja las amarillas.',
+    title: 'Sacos de manzanas',
+    subtitle: 'Llena primero 🔴 y después 🟡',
     skill: 'Control inhibitorio y colores',
-    icon: '🟢',
+    icon: '🍎',
     difficulty: 'Un poco más difícil',
     kind: 'snake-colors',
   },
@@ -31,7 +31,7 @@ export const stages: LearningStage[] = [
   {
     id: 4,
     title: 'Receta en orden',
-    subtitle: 'Completa la secuencia del tratamiento',
+    subtitle: 'Mira el patrón y toca el dibujo',
     skill: 'Patrones y planificación',
     icon: '🔴',
     difficulty: 'Secuencias',
@@ -40,7 +40,7 @@ export const stages: LearningStage[] = [
   {
     id: 5,
     title: 'Sonidos iniciales',
-    subtitle: 'Une letra, sonido y cantidad',
+    subtitle: 'Mira el dibujo y toca la opción',
     skill: 'Conciencia fonológica y números hasta 20',
     icon: '🔤',
     difficulty: 'Desafío final',
